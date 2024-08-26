@@ -72,6 +72,7 @@ public class SecurityConfiguration  {
    // spring.main.allow-circular-references: true
    @Bean
    public static BCryptPasswordEncoder passwordEncoder(){
+       System.out.println("IN Bcrypt pass encode");
        return new BCryptPasswordEncoder();
    }
 

@@ -54,6 +54,8 @@ public class UserRegistrationController {
        
 
        userService.save(userDto);
+       // we redirect to reg page and see newing of DTO yet again
        return "redirect:/registration?success";
+       //return "redirect:/login";
    }
 }

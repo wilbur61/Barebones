@@ -4,27 +4,27 @@ package com.example.Barebones.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "students")
-public class Student {
-	
+@Table(name = "teachers")
+public class Teacher {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "first_name", nullable = false)
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
 	// add comment to trigger reload
 	@Column(name = "email")
 	private String email;
-	
-	public Student() {
-		System.out.println("Student default constructor");
+
+	public Teacher() {
+		System.out.println("Teacher default constructor");
 	}
-	
-	public Student(String firstName, String lastName, String email) {
+
+	public Teacher(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

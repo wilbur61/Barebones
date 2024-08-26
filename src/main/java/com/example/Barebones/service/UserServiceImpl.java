@@ -47,6 +47,15 @@ public class UserServiceImpl implements UserService {
 
     }
 
+
+    /*
+    This method overrides the loadUserByUsername method inherited
+    from UserDetailsService. It's responsible for fetching user
+    details during login based on the provided email.
+
+     Find User: It calls userRepository.findByEmail(email) to find
+     the user with the matching email address.
+     */
     public User findByEmail(String email){
        return userRepository.findByEmail(email);
    }
@@ -67,6 +76,10 @@ public class UserServiceImpl implements UserService {
        if (user == null){
            throw new UsernameNotFoundException("Invalid username or password.");
        }
+       System.out.println("==============================================");
+       System.out.println("IN UserServiceImpl::UserDetails::loadUserByUsername");
+       System.out.println("user "+ user.toString());
+       System.out.println("==============================================");
        return new org.springframework.security.core.userdetails.User(user.getEmail(),
                user.getPassword(),
                mapRolesToAuthorities(user.getRoles()));
